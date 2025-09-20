@@ -1,10 +1,5 @@
 #include <stdio.h>
 
-void limpar_buffer() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
-
 void copiarString(char *origem, char *destino) {
     while (*origem != '\0') {
         *destino = *origem;
@@ -15,13 +10,12 @@ void copiarString(char *origem, char *destino) {
 }
 
 int main() {
-    char str_origem[100]; // Define um tamanho máximo para a string de origem
+    char str_origem[100];
     char str_destino[100];
 
     printf("Digite uma string para ser copiada: ");
-  
     fgets(str_origem, sizeof(str_origem), stdin);
-  
+
     for (int i = 0; str_origem[i] != '\0'; i++) {
         if (str_origem[i] == '\n') {
             str_origem[i] = '\0';
