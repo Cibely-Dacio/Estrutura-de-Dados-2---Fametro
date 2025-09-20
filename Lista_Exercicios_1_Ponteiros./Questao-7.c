@@ -2,7 +2,6 @@
 #include <string.h>
 
 void inverterString(char *str) {
-    // Remove o '\n' que o fgets pode deixar no final
     str[strcspn(str, "\n")] = 0;
 
     int tamanho = strlen(str);
