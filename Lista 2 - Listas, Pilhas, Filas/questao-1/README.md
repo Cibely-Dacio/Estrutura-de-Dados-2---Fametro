@@ -23,6 +23,17 @@ Comandos suportados (digite no terminal):
 - REL
 - EXIT
 
+Exemplos:
+- ADD P001 "Mouse Gamer" 10 150.00
+- ADD P002 "Teclado Mecânico" 5 350.00
+- LIST
+- UPD P001 -3
+- FIND P001
+- REL
+- DEL P002
+- LIST
+- EXIT
+
 Complexidades (Big-O):
 - inserir_inicio: O(1)
 - inserir_ordenado_por_codigo: O(n)
