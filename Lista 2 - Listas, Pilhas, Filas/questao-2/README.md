@@ -20,6 +20,15 @@ Comandos:
 - REL
 - EXIT
 
+Exemplo:
+- 10
+- ADD C1 4
+- ADD C2 8
+- ADD C3 3
+- START
+- REL
+- EXIT
+
 Complexidades (Big-O):
 - inicializar: O(1)
 - enfileirar: O(1)
