@@ -21,16 +21,18 @@ Comandos:
 - TRACE
 - EXIT
 
-Exemplos:
--ADD P001 "Mouse Gamer" 10 150.00
--ADD P002 "Teclado Mecânico" 5 350.00
--LIST
--UPD P001 -3
--FIND P001
--REL
--DEL P002
--LIST
--EXIT
+EXEMPLO:  
+- CALL main 100
+- CALL f1 200
+- PEEK
+- CALL f2 300
+- TRACE
+- RET
+- TRACE
+- RET
+- RET
+- EXIT
+
 
 
 Complexidades (Big-O):
