@@ -2,17 +2,13 @@
 #include <stdlib.h>
 
 #define MAX 100 
-// Define o 'n' fixo aqui
 #define N_FIBONACCI 20
-
-// --- Estrutura da Pilha Estática ---
+-
 typedef struct {
     int topo;
-    // Usamos long long para evitar overflow (Fibonacci cresce rapido)
     long long dados[MAX]; 
 } Pilha;
 
-// --- Funções Básicas da Pilha ---
 void criaPilha(Pilha *p) {
     p->topo = -1;
 }
@@ -45,7 +41,6 @@ long long pop(Pilha *p) {
     }
 }
 
-// Função para mostrar a pilha (sem destruir)
 void mostrarPilha(Pilha *p) {
     if (pilhaVazia(p)) {
         printf("Pilha de Fibonacci esta vazia.\n");
@@ -59,7 +54,6 @@ void mostrarPilha(Pilha *p) {
         printf("%lld\n", valor);
         push(&aux, valor);
     }
-    // Restaura p
     while (!pilhaVazia(&aux)) {
         push(p, pop(&aux));
     }
@@ -70,7 +64,6 @@ int main() {
     Pilha fibPilha;
     criaPilha(&fibPilha);
     
-    // N é fixo (20) conforme solicitado, sem input
     int n = N_FIBONACCI; 
     
     if (n > MAX) {
@@ -98,4 +91,5 @@ int main() {
     mostrarPilha(&fibPilha);
 
     return 0;
+
 }
