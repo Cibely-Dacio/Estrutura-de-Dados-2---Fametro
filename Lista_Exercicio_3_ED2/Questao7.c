@@ -3,19 +3,16 @@
 
 #define MAX 100
 
-// --- Definição da Estrutura de Pilha Estática ---
 typedef struct {
     int topo;
     int dados[MAX];
 } Pilha;
 
-// --- Definição da Estrutura de Fila Estática (Circular) ---
 typedef struct {
     int inicio, fim, total;
     int dados[MAX];
 } Fila;
 
-// --- Funções da Pilha ---
 void criaPilha(Pilha *p) { p->topo = -1; }
 int pilhaVazia(Pilha *p) { return p->topo == -1; }
 int pilhaCheia(Pilha *p) { return p->topo == MAX - 1; }
@@ -27,7 +24,6 @@ int pop(Pilha *p) {
     return p->dados[p->topo--];
 }
 
-// --- Funções da Fila ---
 void criaFila(Fila *f) { f->inicio = 0; f->fim = 0; f->total = 0; }
 int filaVazia(Fila *f) { return f->total == 0; }
 int filaCheia(Fila *f) { return f->total == MAX; }
@@ -46,7 +42,6 @@ int dequeue(Fila *f) {
     return v;
 }
 
-// --- Função para Mostrar ---
 void mostrarPilha(Pilha *p) {
     printf("Pilha Digitada (Topo -> Base):\n");
     if (pilhaVazia(p)) {
@@ -61,7 +56,7 @@ void mostrarPilha(Pilha *p) {
 void mostrarFila(Fila *f, char* nomeFila) {
     printf("Fila Gerada (%s):\n", nomeFila);
     if (filaVazia(f)) {
-        printf("Mensagem: Fila vazia.\n"); // 
+        printf("Mensagem: Fila vazia.\n"); 
         return;
     }
     
@@ -77,7 +72,7 @@ void mostrarFila(Fila *f, char* nomeFila) {
 int main() {
     Pilha p;
     Fila fPares, fImpares;
-    Pilha pAux; // Auxiliar para preservar a pilha original
+    Pilha pAux; 
     
     criaPilha(&p);
     criaPilha(&pAux);
@@ -86,7 +81,7 @@ int main() {
     
     int valor;
     printf("--- Cadastro na Pilha ---\n");
-    printf("Digite numeros (digite < 0 para finalizar):\n"); // 
+    printf("Digite numeros (digite < 0 para finalizar):\n");  
 
     do {
         scanf("%d", &valor);
@@ -95,36 +90,29 @@ int main() {
                 printf("Pilha cheia, parando a leitura.\n");
                 break;
             }
-            push(&p, valor); // 
+            push(&p, valor); 
         }
     } while (valor >= 0);
 
-    // Gerar as filas 
-    // Para manter a ordem de entrada (FIFO) nas filas,
-    // primeiro invertemos a pilha (LIFO) para uma auxiliar.
     while (!pilhaVazia(&p)) {
         push(&pAux, pop(&p));
     }
-
-    // Agora, desempilhamos da auxiliar (ordem original de entrada)
-    // e enfileiramos
     while (!pilhaVazia(&pAux)) {
         int v = pop(&pAux);
         if (v % 2 == 0) {
-            enqueue(&fPares, v); // 
+            enqueue(&fPares, v); 
         } else {
-            enqueue(&fImpares, v); // 
+            enqueue(&fImpares, v); 
         }
-        push(&p, v); // Restaura a pilha original p
+        push(&p, v);
     }
 
-    // --- Saída do Programa --- 
     printf("\n\n--- RESULTADOS ---\n");
-    mostrarPilha(&p); // 
+    mostrarPilha(&p); 
     printf("\n");
-    mostrarFila(&fPares, "Pares"); // 
+    mostrarFila(&fPares, "Pares");
     printf("\n");
-    mostrarFila(&fImpares, "Impares"); // 
+    mostrarFila(&fImpares, "Impares"); 
     
     return 0;
 }
