@@ -141,7 +141,7 @@ void cadastrarNota() {
     printf("Digite o numero do aluno: ");
     scanf("%d", &novaNota.numAluno);
 
-    // 
+    
     if (!existeAluno(novaNota.numAluno)) {
         printf("Mensagem: Aluno (Numero %d) nao cadastrado!\n", novaNota.numAluno); // 
         return;
@@ -150,30 +150,29 @@ void cadastrarNota() {
     do {
         printf("Digite a nota (entre 0 e 10): ");
         scanf("%f", &novaNota.nota);
-        if (novaNota.nota < 0 || novaNota.nota > 10) { // 
+        if (novaNota.nota < 0 || novaNota.nota > 10) { 
             printf("Nota invalida.\n");
         }
     } while (novaNota.nota < 0 || novaNota.nota > 10);
     
-    enqueueNota(novaNota); // 
+    enqueueNota(novaNota); 
     printf("Nota %.2f cadastrada para o aluno %d.\n", novaNota.nota, novaNota.numAluno);
 }
 
 
 void calcularMedia() {
     if (pilhaAlunosVazia()) {
-        printf("Nao ha alunos cadastrados.\n"); // 
+        printf("Nao ha alunos cadastrados.\n"); 
         return;
     }
     
     int numAluno;
     printf("Digite o numero do aluno para calcular a media: ");
-    scanf("%d", &numAluno); // 
+    scanf("%d", &numAluno); 
 
     char nomeAluno[MAX_NOME] = "";
     int encontrouAluno = 0;
 
-    // Busca nome na pilha
     for (int i = 0; i <= pAlunos.topo; i++) {
         if (pAlunos.dados[i].numero == numAluno) {
             strcpy(nomeAluno, pAlunos.dados[i].nome);
@@ -183,7 +182,7 @@ void calcularMedia() {
     }
 
     if (!encontrouAluno) {
-        printf("Aviso: Aluno (Numero %d) nao existe.\n", numAluno); // 
+        printf("Aviso: Aluno (Numero %d) nao existe.\n", numAluno); 
         return;
     }
 
@@ -202,8 +201,8 @@ void calcularMedia() {
     if (cont == 0) {
         printf(" Nao ha notas cadastradas para o aluno %s (Numero %d).\n", nomeAluno, numAluno); // 
     } else {
-        printf("Aluno: %s (Numero %d)\n", nomeAluno, numAluno); // 
-        printf("Media: %.2f\n", soma / cont); // 
+        printf("Aluno: %s (Numero %d)\n", nomeAluno, numAluno); 
+        printf("Media: %.2f\n", soma / cont); 
     }
 }
 
@@ -298,4 +297,5 @@ int main() {
     } while (opcao != 7);
 
     return 0;
+
 }
