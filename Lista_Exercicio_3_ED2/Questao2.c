@@ -36,7 +36,7 @@ void enqueue(Fila *f, int valor) {
 int dequeue(Fila *f) {
     if (filaVazia(f)) {
         printf("Fila vazia!\n");
-        return -1; // Valor de erro
+        return -1;
     } else {
         int valor = f->dados[f->inicio];
         f->inicio = (f->inicio + 1) % MAX;
@@ -52,10 +52,10 @@ int tamanhoFila(Fila *f) {
 void saoIguais(Fila *f1, Fila *f2) {
     if (tamanhoFila(f1) != tamanhoFila(f2)) {
         printf("As filas nao sao iguais.\n");
-        if (tamanhoFila(f1) > tamanhoFila(f2)) { // 
+        if (tamanhoFila(f1) > tamanhoFila(f2)) { 
             printf("A fila F1 e maior (possui %d elementos).\n", tamanhoFila(f1));
         } else {
-            printf("A fila F2 e maior (possui %d elementos).\n", tamanhoFila(f2)); // 
+            printf("A fila F2 e maior (possui %d elementos).\n", tamanhoFila(f2)); 
         }
         return;
     }
@@ -81,7 +81,7 @@ void saoIguais(Fila *f1, Fila *f2) {
     }
 
     if (sao_iguais) {
-        printf("As filas F1 e F2 sao iguais.\n"); // 
+        printf("As filas F1 e F2 sao iguais.\n"); 
     } else {
         printf("As filas F1 e F2 nao sao iguais.\n");
     }
@@ -116,9 +116,9 @@ void estatisticasFila(Fila *f) {
     }
 
     printf("------------------------\n");
-    printf("Maior elemento: %d\n", maior); // 
-    printf("Menor elemento: %d\n", menor); // 
-    printf("Media aritmetica: %.2f\n", soma / contador); // 
+    printf("Maior elemento: %d\n", maior); 
+    printf("Menor elemento: %d\n", menor); 
+    printf("Media aritmetica: %.2f\n", soma / contador); 
 }
 
 // 
@@ -152,7 +152,6 @@ int contaImpares(Fila *f) {
         }
         enqueue(&aux, valor);
     }
-    // Restaura f
     while (!filaVazia(&aux)) {
         enqueue(f, dequeue(&aux));
     }
@@ -200,21 +199,22 @@ int main() {
     printf("\n----Fila 2 ---\n");
     preencherFila(&F2, '2');
 
-    printf("\n---------------\n"); // [cite: 4, 5]
+    printf("\n---------------\n");
     saoIguais(&F1, &F2);
 
-    printf("\n--------------\n"); // 
+    printf("\n--------------\n"); 
     estatisticasFila(&F1);
     
     printf("\n-------------\n");
-    printf("F1 tem %d elementos pares.\n", contaPares(&F1)); // 
-    printf("F1 tem %d elementos impares.\n", contaImpares(&F1)); // 
+    printf("F1 tem %d elementos pares.\n", contaPares(&F1)); 
+    printf("F1 tem %d elementos impares.\n", contaImpares(&F1)); 
 
-    printf("\n--------------\n"); // 
+    printf("\n--------------\n"); 
     transfereF1paraF2(&F1, &F2);
     
     printf("\n------------\n");
     estatisticasFila(&F2);
 
     return 0;
+
 }
