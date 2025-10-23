@@ -81,7 +81,7 @@ void saoIguais(Pilha *p1, Pilha *p2) {
 
     if (sao_iguais) {
         printf("\n----------------------------\n");
-        printf("As pilhas P1 e P2 sao iguais.\n"); // 
+        printf("As pilhas P1 e P2 sao iguais.\n");
     } else {
         printf("\n----------------------------\n");
         printf("As pilhas P1 e P2 nao são iguais.\n");
@@ -133,8 +133,8 @@ void transfereP1paraP2(Pilha *p1, Pilha *p2) {
 
     while (!pilhaVazia(&aux)) {
         int valor = pop(&aux);
-        push(p1, valor); // Restaura P1
-        push(p2, valor); // Copia para P2
+        push(p1, valor);
+        push(p2, valor); 
     }
     printf("----------------------------");
     printf("\nP1 copiado para P2.\n");
@@ -153,14 +153,13 @@ int contaImpares(Pilha *p) {
         }
         push(&aux, valor);
     }
-    // Restaura p
+
     while (!pilhaVazia(&aux)) {
         push(p, pop(&aux));
     }
     return impares;
 }
 
-// 
 int contaPares(Pilha *p) {
     Pilha aux;
     criaPilha(&aux);
@@ -173,7 +172,6 @@ int contaPares(Pilha *p) {
         }
         push(&aux, valor);
     }
-    // Restaura p
     while (!pilhaVazia(&aux)) {
         push(p, pop(&aux));
     }
@@ -205,8 +203,8 @@ int main() {
 
     estatisticasPilha(&P1);
     printf("\n----------------------------\n");
-    printf("P1 tem %d elementos pares.\n", contaPares(&P1)); // 
-    printf("P1 tem %d elementos impares.\n", contaImpares(&P1)); // 
+    printf("P1 tem %d elementos pares.\n", contaPares(&P1)); 
+    printf("P1 tem %d elementos impares.\n", contaImpares(&P1)); 
 
     transfereP1paraP2(&P1, &P2);
     
@@ -214,4 +212,5 @@ int main() {
     estatisticasPilha(&P2);
 
     return 0;
+
 }
